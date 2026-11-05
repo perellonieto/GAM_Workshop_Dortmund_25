@@ -80,8 +80,8 @@ Install them into the pixi environment once:
 pixi run install-r-github
 ```
 
-The Python demos don't need this step. `pymgcv` only needs `mgcv`, and the
-datasets are downloaded directly from GitHub.
+The Python demos don't need this step. They use `mgcv` and `mgcViz` (both installed in
+step 2) and download the datasets directly from GitHub.
 
 ## 4. Check the setup
 
@@ -109,8 +109,20 @@ pixi run R
 
 ### Python demos (Jupyter notebooks)
 
-The Python demos are Jupyter notebooks (`Py_demos/*.ipynb`). Start JupyterLab in the
-pixi environment:
+The Python demos are Jupyter notebooks in `Py_demos/`, one for each R demo:
+
+| Notebook | R demo | Contents |
+|---|---|---|
+| `1_Intro_Gefcom14.ipynb` | `1_Intro_Gefcom14.R` | First GAMs with pymgcv: linear vs smooth effects, AIC, prediction |
+| `2_effects_and_mgcViz.ipynb` | `2_effects_and_mgcViz.R` | Effect plots, residual checks, Poisson GAMs with offsets, spatial effects |
+
+Notebook 2 also shows how to call R packages from Python with `rpy2`. mgcViz has no
+Python equivalent, so the notebook rebuilds its checks with numpy/matplotlib and shows the
+original mgcViz plots next to them. It also uses rpy2 to fit a Markov random field model,
+which pymgcv doesn't support yet. A table at the top of the notebook lists each R function
+and its Python replacement.
+
+Start JupyterLab in the pixi environment:
 
 ```bash
 pixi run lab
