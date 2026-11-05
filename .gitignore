@@ -1,0 +1,8 @@
+.pixi/
+*.pyc
+__pycache__/
+.Rhistory
+.RData
+.DS_Store
+Rplots.pdf
+.ipynb_checkpoints/
