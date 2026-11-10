@@ -80,8 +80,8 @@ Install them into the pixi environment once:
 pixi run install-r-github
 ```
 
-Python notebooks 1 and 2 don't need this step: they use `mgcv` and `mgcViz` (both
-installed in step 2) and download their datasets directly from GitHub. Notebook 3 needs
+Python notebooks 1, 2 and 4 don't need this step: they use `mgcv`, `mgcViz` and `qgam`
+(installed in step 2) and download their datasets directly from GitHub. Notebook 3 needs
 it, because it calls `SCM` and `gamFactory` through rpy2.
 
 ## 4. Check the setup
@@ -117,12 +117,14 @@ The Python demos are Jupyter notebooks in `Py_demos/`, one for each R demo:
 | `1_Intro_Gefcom14.ipynb` | `1_Intro_Gefcom14.R` | First GAMs with pymgcv: linear vs smooth effects, AIC, prediction |
 | `2_effects_and_mgcViz.ipynb` | `2_effects_and_mgcViz.R` | Effect plots, residual checks, Poisson GAMs with offsets, spatial effects |
 | `3_multi_gams.ipynb` | `3_multi_gams.R` | GAMLSS (shash), multivariate Gaussian models with SCM, stacking with gamFactory |
+| `4_qgam.ipynb` | `4_qgam.R` | Quantile GAMs with qgam: single and multiple quantiles, quantile checks, space-time effects |
 
-Notebooks 2 and 3 also show how to call R packages from Python with `rpy2`. mgcViz has no
+Notebooks 2, 3 and 4 also show how to call R packages from Python with `rpy2`. mgcViz has no
 Python equivalent, so the notebook rebuilds its checks with numpy/matplotlib and shows the
 original mgcViz plots next to them. It also uses rpy2 to fit a Markov random field model,
 which pymgcv doesn't support yet. Notebook 3 uses rpy2 for the `SCM` and `gamFactory`
-models. A table at the top of each notebook lists each R function and its Python
+models. Notebook 4 fits quantile GAMs with `qgam` through rpy2 and wraps the results in
+pymgcv `GAM` objects, so pymgcv's prediction and plotting functions work on them. A table at the top of each notebook lists each R function and its Python
 replacement.
 
 Start JupyterLab in the pixi environment:
