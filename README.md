@@ -127,6 +127,10 @@ models. Notebook 4 fits quantile GAMs with `qgam` through rpy2 and wraps the res
 pymgcv `GAM` objects, so pymgcv's prediction and plotting functions work on them. A table at the top of each notebook lists each R function and its Python
 replacement.
 
+Helper functions shared by several notebooks are in `Py_demos/plot_helpers.py`. The
+notebooks import it from their own folder, which is where Jupyter and VS Code run them by
+default.
+
 Start JupyterLab in the pixi environment:
 
 ```bash
